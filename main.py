@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+from point import Point
+
 
 def main():
-    print('Hello World!')
+    point_A = Point('A', 1, 2)
+    print(point_A)
 
 
 if __name__ == '__main__':

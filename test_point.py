@@ -24,3 +24,12 @@ def test_should_check_constructor_with_z():
     assert point_a.x == 1
     assert point_a.y == 1
     assert point_a.z == 1
+
+
+def test_should_check_print_method():
+    # given
+    point_a = Point('A', 1, 1, 1)
+
+    # when
+    # then
+    assert point_a.__str__() == 'Point(nr="A", x=1, y=1, z=1)'

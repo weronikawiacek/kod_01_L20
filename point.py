@@ -8,3 +8,7 @@ class Point(object):
         self.y = y
         self.z = z
 
+    def __str__(self):
+        return f'Point(nr="{self.name}", x={self.x}, y={self.y}, z={self.z})'
+
+

@@ -39,9 +39,14 @@ def test_should_check_lenght():
     # given
     begin_point = Point('P1245', 0, 0)
     end_point = Point('P12', 3, 4)
+    end_point_3d = Point('P12', 3, 4, 1)
 
     # when
     # then
-    assert begin_point.lenght(begin_point) == 0
-    assert begin_point.lenght(end_point) == 5
-    assert end_point.lenght(begin_point) == 5
+    assert begin_point.length(begin_point) == 0
+    assert begin_point.length(end_point) == 5
+    assert end_point.length(begin_point) == 5
+
+    assert begin_point.length(begin_point, _3d=True) == 0
+    assert begin_point.length(end_point_3d, _3d=True) == (9 + 16 + 1) ** 0.5
+    assert end_point_3d.length(begin_point, _3d=True) == (9 + 16 + 1) ** 0.5

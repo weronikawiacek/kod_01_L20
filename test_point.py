@@ -33,3 +33,15 @@ def test_should_check_print_method():
     # when
     # then
     assert point_a.__str__() == 'Point(nr="A", x=1, y=1, z=1)'
+
+
+def test_should_check_lenght():
+    # given
+    begin_point = Point('P1245', 0, 0)
+    end_point = Point('P12', 3, 4)
+
+    # when
+    # then
+    assert begin_point.lenght(begin_point) == 0
+    assert begin_point.lenght(end_point) == 5
+    assert end_point.lenght(begin_point) == 5

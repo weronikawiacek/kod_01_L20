@@ -74,3 +74,15 @@ def test_should_check_get_azimuth():
     assert begin_point.get_azimuth(end_point_250) == 250
     assert begin_point.get_azimuth(end_point_300) == 300
     assert begin_point.get_azimuth(end_point_350) == 350
+
+
+def test_should_check_get_angle():
+    # given
+    central_point = Point('P1245', 0, 0)
+    left_point = Point('P0', 1, 0)
+    right_point_50 = Point('P50', 1, 1)
+
+    # when
+    # then
+    assert central_point.get_angle(left_point, right_point_50) == 50
+

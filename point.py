@@ -29,3 +29,9 @@ class Point(object):
             return angle
         else:
             return 400 + angle
+
+    def get_angle(self, left, right):
+        azimuth_left = self.get_azimuth(left)
+        azimuth_right = self.get_azimuth(right)
+
+        return azimuth_right - azimuth_left

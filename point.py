@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import math
+
 
 class Point(object):
 
@@ -11,10 +13,19 @@ class Point(object):
     def __str__(self):
         return f'Point(nr="{self.name}", x={self.x}, y={self.y}, z={self.z})'
 
-    def length(self, other, _3d=False):
+    def get_length(self, other, _3d=False):
         if not _3d:
             # długość 2d
             return ((other.x - self.x) ** 2 + (other.y - self.y) ** 2) ** 0.5
         else:
             # długość 3d
-            return ((other.x - self.x) ** 2 + (other.y - self.y) ** 2 + (other.z - self.z)**2) ** 0.5
+            return ((other.x - self.x) ** 2 + (other.y - self.y) ** 2 + (other.z - self.z) ** 2) ** 0.5
+
+    def get_azimuth(self, other):
+        delta_x = other.x - self.x
+        delta_y = other.y - self.y
+        angle = math.atan2(delta_y, delta_x) * (200 / math.pi)
+        if angle >= 0:
+            return angle
+        else:
+            return 400 + angle

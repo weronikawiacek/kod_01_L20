@@ -9,6 +9,10 @@ def normalize_angle(angle):
         return 400 + angle
 
 
+def radians_to_grads(angle_in_radians):
+    return angle_in_radians * (200/math.pi)
+
+
 class Point(object):
 
     def __init__(self, name, x, y, z=0):
@@ -31,7 +35,7 @@ class Point(object):
     def get_azimuth(self, other):
         delta_x = other.x - self.x
         delta_y = other.y - self.y
-        angle = math.atan2(delta_y, delta_x) * (200 / math.pi)
+        angle = radians_to_grads(math.atan2(delta_y, delta_x))
         return normalize_angle(angle)
 
     def get_angle(self, left, right):

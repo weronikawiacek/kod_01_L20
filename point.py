@@ -2,6 +2,13 @@
 import math
 
 
+def normalize_angle(angle):
+    if angle >= 0:
+        return angle
+    else:
+        return 400 + angle
+
+
 class Point(object):
 
     def __init__(self, name, x, y, z=0):
@@ -25,13 +32,10 @@ class Point(object):
         delta_x = other.x - self.x
         delta_y = other.y - self.y
         angle = math.atan2(delta_y, delta_x) * (200 / math.pi)
-        if angle >= 0:
-            return angle
-        else:
-            return 400 + angle
+        return normalize_angle(angle)
 
     def get_angle(self, left, right):
         azimuth_left = self.get_azimuth(left)
         azimuth_right = self.get_azimuth(right)
-
-        return azimuth_right - azimuth_left
+        angle = azimuth_right - azimuth_left
+        return normalize_angle(angle)

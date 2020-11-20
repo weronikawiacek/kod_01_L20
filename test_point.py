@@ -79,10 +79,44 @@ def test_should_check_get_azimuth():
 def test_should_check_get_angle():
     # given
     central_point = Point('P1245', 0, 0)
-    left_point = Point('P0', 1, 0)
-    right_point_50 = Point('P50', 1, 1)
+    end_point_0 = Point('P0', 1, 0)
+    end_point_50 = Point('P50', 1, 1)
+    end_point_100 = Point('P100', 0, 1)
+    end_point_150 = Point('P150', -1, 1)
+    end_point_200 = Point('P200', -1, 0)
+    end_point_250 = Point('P250', -1, -1)
+    end_point_300 = Point('P300', 0, -1)
+    end_point_350 = Point('P350', 1, -1)
 
     # when
     # then
-    assert central_point.get_angle(left_point, right_point_50) == 50
+    assert central_point.get_angle(end_point_0, end_point_0) == 0
+    assert central_point.get_angle(end_point_0, end_point_50) == 50
+    assert central_point.get_angle(end_point_0, end_point_100) == 100
+    assert central_point.get_angle(end_point_0, end_point_150) == 150
+    assert central_point.get_angle(end_point_0, end_point_200) == 200
+    assert central_point.get_angle(end_point_0, end_point_250) == 250
+    assert central_point.get_angle(end_point_0, end_point_300) == 300
+    assert central_point.get_angle(end_point_0, end_point_350) == 350
+
+    assert central_point.get_angle(end_point_50, end_point_50) == 0
+    assert central_point.get_angle(end_point_50, end_point_100) == 50
+    assert central_point.get_angle(end_point_50, end_point_150) == 100
+    assert central_point.get_angle(end_point_50, end_point_200) == 150
+    assert central_point.get_angle(end_point_50, end_point_250) == 200
+    assert central_point.get_angle(end_point_50, end_point_300) == 250
+    assert central_point.get_angle(end_point_50, end_point_350) == 300
+    assert central_point.get_angle(end_point_50, end_point_0) == 350
+
+    assert central_point.get_angle(end_point_100, end_point_100) == 0
+    assert central_point.get_angle(end_point_100, end_point_150) == 50
+    assert central_point.get_angle(end_point_100, end_point_200) == 100
+    assert central_point.get_angle(end_point_100, end_point_250) == 150
+    assert central_point.get_angle(end_point_100, end_point_300) == 200
+    assert central_point.get_angle(end_point_100, end_point_350) == 250
+    assert central_point.get_angle(end_point_100, end_point_0) == 300
+    assert central_point.get_angle(end_point_100, end_point_50) == 350
+
+
+
 

@@ -3,10 +3,16 @@ import math
 
 
 def normalize_angle(angle):
-    if angle >= 0:
+    if 0 <= angle < 400:
         return angle
+    elif angle >= 400:
+        while angle >= 400:
+            angle = angle - 400
     else:
-        return 400 + angle
+        while angle < 0:
+            angle = angle + 400
+
+    return angle
 
 
 def radians_to_grads(angle_in_radians):
@@ -17,9 +23,9 @@ class Point(object):
 
     def __init__(self, name, x, y, z=0):
         self.name = name
-        self.x = x
-        self.y = y
-        self.z = z
+        self.x = float(x)
+        self.y = float(y)
+        self.z = float(z)
 
     def __str__(self):
         return f'Point(nr="{self.name}", x={self.x}, y={self.y}, z={self.z})'

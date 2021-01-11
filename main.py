@@ -18,7 +18,7 @@ def main():
         length += points[i].get_length(points[i+1])
         
     angle = 0
-    for i in range(1, len(points)-2):
+    for i in range(1, len(points)-1):
         angle += points[i].get_angle(points[i-1], points[i+1])
 
     print(f'length = {length}')

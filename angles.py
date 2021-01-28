@@ -61,14 +61,13 @@ def decimal_deg2dms_deg(decimal_deg):
     decimal_deg2dms_deg(1.0169722222222222) --> (1, 1, 1.1)
     """
 
-    return (d,m,s)
+
 d = int(1.0169722222222222°) = 1°
 m = int((1.0169722222222222° - 1°) × 60) = 1'
 s = (1.0169722222222222° - 1° - 1'/60) × 3600 = 1.1"
 1.0169722222222222°= 1° 1' 1.1"
 
-return decimal_deg * ((1,1,1.1)/1.0169722222222222)
-
+return (d,m,s,2)
 
 
 def dms_deg2decimal_deg(dms_deg):
@@ -77,8 +76,5 @@ def dms_deg2decimal_deg(dms_deg):
     """
 
     return
-    1° 1' 1.1"
-= 1° + 1'/60 + 1.1"/3600
-= 1.016972°
-return dms_deg * (1.0169722222222222/(d,m,s))
+
 # ======================== for 5
